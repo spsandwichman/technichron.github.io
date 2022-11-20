@@ -1,41 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
-<title>technichron</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="style.css">
-<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap&text=ˈˌɛɪɒ" rel="stylesheet"> <!-- loads special characters for the fancy IPA pronunciation guide -->
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<body>
+    <!-- 
+     _            _           _      _                     
+    | |          | |         (_)    | |                    
+    | |_ ___  ___| |__  _ __  _  ___| |__  _ __ ___  _ __  
+    | __/ _ \/ __| '_ \| '_ \| |/ __| '_ \| '__/ _ \| '_ \ 
+    | ||  __/ (__| | | | | | | | (__| | | | | | (_) | | | |
+     \__\___|\___|_| |_|_| |_|_|\___|_| |_|_|  \___/|_| |_|
+                                                        
+        Site designed by Davit G
 
-	<video playsinline autoplay muted loop poster="images/polygon low res.jpg" id="bgvid">
-  		<source src="images/polygon slow anim.mp4" type="video/mp4">
-	</video>
+        - https://davitg.com
+        - https://davz.com
+ 
+    -->
+    
+    <!-- Favicon icon -->
+    <link rel="icon" href="data:image/x-icon;base64,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" type="image/png" />
 
-	<div class="top-right" >
-		<img src="images/wordmark.png" alt = "technichron wordmark" width="600" height="22">
-		<h1 id = "top-right-text">
-			(/ˈtɛknɪˌkrɒn/)<br><br><br>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
 
-			Logo/Brand design — Typography — Digital art — Graphics <br>
-			Artist/designer based in the Northeast USA. <br><br>
+    <!-- Meta -->
+    <!-- Primary Meta Tags -->
+    <title>technichron</title>
+    <meta name="title" content="technichron">
+    <meta name="description" content="Artist/designer based in Northeast USA specialising in logo / brand design, typography, digital art, graphics. ">
 
-			<a href="mailto:4ed7ff@gmail.com?subject=Hey, I have an idea!"><strong>Let's make something beautiful.</strong></a>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://technichronart.com/">
+    <meta property="og:title" content="technichron">
+    <meta property="og:description" content="Artist/designer based in Northeast USA specialising in logo / brand design, typography, digital art, graphics. ">
+    <meta property="og:image" content="">
 
-		</h1>
-	</div>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://technichronart.com/">
+    <meta property="twitter:title" content="technichron">
+    <meta property="twitter:description" content="Artist/designer based in Northeast USA specialising in logo / brand design, typography, digital art, graphics. ">
+    <meta property="twitter:image" content="">
+  <script type="module" crossorigin src="/assets/index.fb334a68.js"></script>
+  <link rel="stylesheet" href="/assets/index.0c9cf86a.css">
+</head>
 
-	<div class="bottom-right">
-		<h1 id="bottom-right-text">
-		© Technichron 2022. <br>
-		All rights reserved.
-		</h1>
-	</div>
+<body class="">
+    <canvas id="renderCanvas" class="absolute -z-10"></canvas>
+    <div class="">
+        <div class="fixed top-0 p-6 md:p-6 fade-in">
+            <img src="data:image/png;base64,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" class="hidden w-24 md:block md:w-36" alt="Technichron Logo" />
+        </div>
+        <div class="fixed top-0 right-0 p-6 md:p-6 fade-in">
+            <img src="/assets/wordmark.2e30cc52.png" class="right-0 ml-auto w-full md:w-[600px]" alt="Technichron text" />
+            <div class="mix-blend-difference">
+                <p class="text-right text-sm md:text-lg text-black">
+                    (/ˈtɛknɪˌkrɒn/)
+                </p>
+                <p class="text-right text-[0.8rem] md:text-[1.0rem] font-light mt-3 md:mt-4 text-black mix-blend-difference">
+                    Logo/Brand design — Typography — Digital art — Graphics
+                </p>
+                <p
+                    class="text-right text-[0.8rem] md:text-[1.0rem] mt-1 font-light mix-blend-difference md:mt-1 text-black">
+                    Artist/designer based in the Northeast USA.
+                </p>
+                <p class="float-right mt-4 text-right underline text-black text-sm">
+                    <a href="mailto:4ed7ff@gmail.com?subject=Hey, I've got an idea!">Let's make something beautiful.</a>
+                </p>
+            </div>
+        </div>
+        <div class="fixed bottom-0 left-0 flex flex-col items-center gap-4 p-6 mix-blend-difference md:flex-row z-20">
+            <a href="https://www.instagram.com/technichron/">
+                <svg class="w-6 flex-shrink" viewBox="0 0 448 512">
+                    <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                        d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                </svg>
+            </a>
+            <a href="https://www.youtube.com/channel/UCmlJ3NenNwVxh49X6qsONCw">
+                <svg class="w-7 flex-shrink" viewBox="0 0 576 512">
+                    <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                        d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />
+                </svg>
+            </a>
+            <a href="https://twitter.com/technichron">
+                <svg class="w-6 flex-shrink" viewBox="0 0 512 512">
+                    <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                        d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+                </svg>
+            </a>
+            <a href="https://www.behance.net/technichron">
+                <svg class="w-7 flex-shrink" viewBox="0 0 576 512">
+                    <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                        d="M232 237.2c31.8-15.2 48.4-38.2 48.4-74 0-70.6-52.6-87.8-113.3-87.8H0v354.4h171.8c64.4 0 124.9-30.9 124.9-102.9 0-44.5-21.1-77.4-64.7-89.7zM77.9 135.9H151c28.1 0 53.4 7.9 53.4 40.5 0 30.1-19.7 42.2-47.5 42.2h-79v-82.7zm83.3 233.7H77.9V272h84.9c34.3 0 56 14.3 56 50.6 0 35.8-25.9 47-57.6 47zm358.5-240.7H376V94h143.7v34.9zM576 305.2c0-75.9-44.4-139.2-124.9-139.2-78.2 0-131.3 58.8-131.3 135.8 0 79.9 50.3 134.7 131.3 134.7 61.3 0 101-27.6 120.1-86.3H509c-6.7 21.9-34.3 33.5-55.7 33.5-41.3 0-63-24.2-63-65.3h185.1c.3-4.2.6-8.7.6-13.2zM390.4 274c2.3-33.7 24.7-54.8 58.5-54.8 35.4 0 53.2 20.8 56.2 54.8H390.4z" />
+                </svg>
+            </a>
+        </div>
+        <footer class="fixed bottom-0 w-full fade-in">
+            <div class="relative bottom-0 float-right mt-auto w-full p-6 text-right hidden md:block">
+                <p class="font-light shadow-black drop-shadow-lg mix-blend-difference text-black">
+                    @ Technichron 2022.
+                </p>
+                <p class="font-light shadow-black drop-shadow-lg mix-blend-difference text-black">
+                    Site by <a href="https://davitg.com">Davit G</a>
+                </p>
+            </div>
+        </footer>
+    </div>
 
+    
 </body>
+
 </html>
